@@ -1,56 +1,119 @@
-*{
-   margin: 0;
-   padding: 0;
-   box-sizing: border-box; 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-html,body{
+html,
+body {
     width: 100%;
     height: 100%;
     color: white;
+    background-color: var(--black-color);
+    overflow: hidden;
 }
-:root{
+
+:root {
 
     /*color */
-    --black-color:rgb(17, 17, 17);
-    --red-color:#6e1423;
-    --white-color:rgb(241, 241, 241);
-    --invory-color:#f4eade;
-    --purple-color:#8B5CF6;
-    --pink-color:#EC4899;
+    --black-color: rgb(17, 17, 17);
+    --red-color: #6e1423;
+    --white-color: rgb(241, 241, 241);
+    --invory-color: #f4eade;
+    --purple-color: #8B5CF6;
+    --pink-color: #EC4899;
+
+    /* FontFamily */
+    --heading-font: "Bodoni Moda SC", serif;
+    --normal-font: "Allura", cursive;
+
 
     /* font-sizes */
-    --min-font-sz:4px;
-    --sm-font-sz:8px;
-    --med-font-sz:16px;
-    --med2-font-sz:24px;
-    --lg-font-sz:32px;
-    --xl-font-sz:64px;
-    --xxl-font-sz:128px;
+    --min-font-sz: 4px;
+    --sm-font-sz: 8px;
+    --med-font-sz: 16px;
+    --med2-font-sz: 24px;
+    --lg-font-sz: 32px;
+    --xl-font-sz: 64px;
+    --xxl-font-sz: 128px;
 
 
 
 }
 
-body{
-    background-color: var(--black-color);
+.section1 {
+    width: 100%;
+    height: 100%;
 }
 
-.section1 nav{
+.section1 nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 40px 60px;
 }
 
-.logo i{
+.logo i {
     font-size: var(--med2-font-sz);
 }
 
-.navs{
+.navs {
     display: flex;
     justify-content: space-between;
     align-items: center;
     gap: 70px;
     font-size: var(--med2-font-sz);
+    font-family: var(--heading-font)
 }
+
+.containerBox1 {
+    height: 100%;
+    display: flex;
+    margin: 50px 80px 80px 80px;
+    justify-content: space-between;
+}
+
+.photoContainer1 {
+    width: 20%;
+    height: 50%;
+    color: var(--white-color);
+}
+
+.pic1 {
+    width: 100%;
+    height: 70%;
+    border: 6px solid var(--white-color);
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+
+.pic1 img {
+    width: 100%;
+    height: 100%;
+}
+
+.photoContainer2 {
+    width: 30%;
+    height: 80%;
+    color: var(--white-color);
+    object-fit: cover;
+    margin: 50px 40px 0px 50px;
+}
+
+.pic2 {
+    width: 100%;
+    height: 80%;
+    border: 6px solid var(--white-color);
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+
+.pic2 img {
+    width: 100%;
+    height: 100%;
+}
+
+.pic2 h1{
+    font-size: var(--xl-font-sz);
+}
+
