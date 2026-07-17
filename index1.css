@@ -19,6 +19,15 @@ html,body{
     --purple-color:#8B5CF6;
     --pink-color:#EC4899;
 
+    /* font-sizes */
+    --min-font-sz:4px;
+    --sm-font-sz:8px;
+    --med-font-sz:16px;
+    --med2-font-sz:24px;
+    --lg-font-sz:32px;
+    --xl-font-sz:64px;
+    --xxl-font-sz:128px;
+
 
 
 }
@@ -29,9 +38,19 @@ body{
 
 .section1 nav{
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
     align-items: center;
-    padding: 30px;
+    padding: 40px 60px;
 }
 
-.section1 h4{}
+.logo i{
+    font-size: var(--med2-font-sz);
+}
+
+.navs{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 70px;
+    font-size: var(--med2-font-sz);
+}
