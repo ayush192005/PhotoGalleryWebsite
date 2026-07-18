@@ -10,7 +10,7 @@ body {
     height: 100%;
     color: white;
     background-color: var(--black-color);
-    overflow: hidden;
+    /* overflow: hidden; */
 }
 
 :root {
@@ -34,8 +34,10 @@ body {
     --med-font-sz: 16px;
     --med2-font-sz: 24px;
     --lg-font-sz: 32px;
+    --hil-font-sz: 45px;
     --xl-font-sz: 64px;
-    --xxl-font-sz: 128px;
+    --xxl-font-sz: 100px;
+    --xxxl-font-sz: 100%;
 
 
 
@@ -67,21 +69,21 @@ body {
 }
 
 .containerBox1 {
-    height: 100%;
+    height: 70%;
     display: flex;
-    margin: 50px 80px 80px 80px;
+    margin: 50px 70px 80px 70px;
     justify-content: space-between;
 }
 
 .photoContainer1 {
-    width: 20%;
+    width: 25%;
     height: 50%;
     color: var(--white-color);
 }
 
 .pic1 {
     width: 100%;
-    height: 70%;
+    height: 100%;
     border: 6px solid var(--white-color);
     overflow: hidden;
     margin-bottom: 10px;
@@ -92,17 +94,24 @@ body {
     height: 100%;
 }
 
+.message1 p{
+    font-size: var(--lg-font-sz);
+    font-family: var(--normal-font);
+}
+
 .photoContainer2 {
-    width: 30%;
-    height: 80%;
+    width: 27%;
+    height: 90%;
     color: var(--white-color);
     object-fit: cover;
-    margin: 50px 40px 0px 50px;
+    margin: 70px 40px 0px 50px;
+    display: flex;
+    align-items: center;
 }
 
 .pic2 {
     width: 100%;
-    height: 80%;
+    height: 100%;
     border: 6px solid var(--white-color);
     overflow: hidden;
     margin-bottom: 10px;
@@ -113,7 +122,57 @@ body {
     height: 100%;
 }
 
-.pic2 h1{
-    font-size: var(--xl-font-sz);
+.title {
+    position: relative;
+    top: -80px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-content: center;
 }
 
+.title h1{
+    font-size: var(--xxl-font-sz);
+    font-family: var(--heading-font);
+}
+
+.photoContainer3 {
+    width: 25%;
+    height: 50%;
+    margin-top: 120px;
+}
+
+.section2 {
+    height: 100%;
+}
+
+.containerBox2{
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin: 150px 70px 0px 70px ;
+}
+
+.titleArea{
+
+}
+
+.titleArea{
+    font-family: var(--heading-font);
+    font-size: var(--md2-font-sz);
+}
+
+.paragraphArea{
+    width: 40%;
+    height: 100%;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.paragraphArea p{
+    font-family: var(--normal-font);
+    font-size: var(--hil-font-sz);
+    
+}
