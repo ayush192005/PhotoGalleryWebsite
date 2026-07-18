@@ -10,12 +10,12 @@ body {
     height: 100%;
     color: white;
     background-color: var(--black-color);
-    /* overflow: hidden; */
+    overflow-x: hidden;
 }
 
 :root {
 
-    /*color */
+    /* color */
     --black-color: rgb(17, 17, 17);
     --red-color: #6e1423;
     --white-color: rgb(241, 241, 241);
@@ -27,28 +27,35 @@ body {
     --heading-font: "Bodoni Moda SC", serif;
     --normal-font: "Allura", cursive;
 
-
     /* font-sizes */
-    --min-font-sz: 4px;
-    --sm-font-sz: 8px;
-    --med-font-sz: 16px;
-    --med2-font-sz: 24px;
-    --lg-font-sz: 32px;
-    --hil-font-sz: 45px;
-    --xl-font-sz: 64px;
-    --xxl-font-sz: 100px;
-    --xxxl-font-sz: 100%;
+    --min-font-sz: 1rem;
+    --sm-font-sz: 1.5rem;
+    --med-font-sz: 2rem;
+    --med2-font-sz: 2.5rem;
+    --lg-font-sz: 3rem;
+    --hil-font-sz: 4rem;
+    --xl-font-sz: 5rem;
+    --xxl-font-sz: 6rem;
+    --xxxl-font-sz: 7rem;
 
-
-
+    /* layout */
+    --max-page-width: 1400px;
 }
+
+img {
+    display: block;
+}
+
+/* ===== Section 1 ===== */
 
 .section1 {
     width: 100%;
-    height: 100%;
+    height: 100vh;
 }
 
 .section1 nav {
+    max-width: var(--max-page-width);
+    margin: 0 auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -56,7 +63,7 @@ body {
 }
 
 .logo i {
-    font-size: var(--med2-font-sz);
+    font-size: var(--min-font-sz);
 }
 
 .navs {
@@ -64,14 +71,23 @@ body {
     justify-content: space-between;
     align-items: center;
     gap: 70px;
-    font-size: var(--med2-font-sz);
-    font-family: var(--heading-font)
+    font-size: var(--min-font-sz);
+    font-family: var(--heading-font);
 }
 
 .containerBox1 {
-    height: 70%;
+    max-width: var(--max-page-width);
+    height: 80%;
+    margin: 0 auto;
+    padding: 0 70px;
     display: flex;
-    margin: 50px 70px 80px 70px;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.threePhotosContainer {
+    width: 100%;
+    display: flex;
     justify-content: space-between;
 }
 
@@ -81,29 +97,31 @@ body {
     color: var(--white-color);
 }
 
-.pic1 {
+.pic1,
+.pic3 {
     width: 100%;
-    height: 100%;
+    height: 250px;
     border: 6px solid var(--white-color);
     overflow: hidden;
     margin-bottom: 10px;
 }
 
-.pic1 img {
+.pic1 img,
+.pic3 img {
     width: 100%;
     height: 100%;
+    object-fit: cover;
 }
 
-.message1 p{
-    font-size: var(--lg-font-sz);
+.message1 p {
+    font-size: var(--med-font-sz);
     font-family: var(--normal-font);
 }
 
 .photoContainer2 {
     width: 27%;
-    height: 90%;
+    height: 100%;
     color: var(--white-color);
-    object-fit: cover;
     margin: 70px 40px 0px 50px;
     display: flex;
     align-items: center;
@@ -111,7 +129,7 @@ body {
 
 .pic2 {
     width: 100%;
-    height: 100%;
+    height: 70vh;
     border: 6px solid var(--white-color);
     overflow: hidden;
     margin-bottom: 10px;
@@ -120,20 +138,19 @@ body {
 .pic2 img {
     width: 100%;
     height: 100%;
+    object-fit: cover;
 }
 
 .title {
-    position: relative;
-    top: -80px;
-    width: 100%;
     display: flex;
     justify-content: center;
-    align-content: center;
+    align-items: center;
 }
 
-.title h1{
-    font-size: var(--xxl-font-sz);
+.title h1 {
+    font-size: var(--xl-font-sz);
     font-family: var(--heading-font);
+    text-align: center;
 }
 
 .photoContainer3 {
@@ -142,37 +159,36 @@ body {
     margin-top: 120px;
 }
 
+/* ===== Section 2 ===== */
+
 .section2 {
     height: 100%;
 }
 
-.containerBox2{
+.containerBox2 {
+    max-width: var(--max-page-width);
     height: 100%;
+    margin: 0 auto;
     display: flex;
     justify-content: space-between;
-    margin: 150px 70px 0px 70px ;
+    padding: 150px 70px 0px 70px;
 }
 
-.titleArea{
-
-}
-
-.titleArea{
+.titleArea {
     font-family: var(--heading-font);
-    font-size: var(--md2-font-sz);
+    font-size: var(--med2-font-sz);
 }
 
-.paragraphArea{
+.paragraphArea {
     width: 40%;
     height: 100%;
     display: flex;
-    align-content: center;
+    align-items: center;
     justify-content: center;
     text-align: center;
 }
 
-.paragraphArea p{
+.paragraphArea p {
     font-family: var(--normal-font);
-    font-size: var(--hil-font-sz);
-    
+    font-size: var(--med2-font-sz);
 }
