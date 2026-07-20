@@ -185,6 +185,7 @@ img {
     display: flex;
     justify-content:center;
     gap: 120px;
+    max-width: 100%;
 }
 
 .titleArea {
@@ -228,8 +229,9 @@ img {
 .containerBox3 {
     display: flex;
     justify-content: space-between;
-    margin: 4vw;
+    margin: 3vw;
     flex-direction: column;
+    width: 100%;
 }
 
 .page3Heading {
@@ -246,10 +248,11 @@ img {
     display: flex;
     justify-content: center;
     gap: 40px;
+    margin: 0 auto;
 }
 
 .card1 {
-    /* height: 100vh; */
+
     width: 100%;
     display: flex;
     flex-direction: column;
