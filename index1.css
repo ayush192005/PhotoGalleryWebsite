@@ -15,7 +15,9 @@ body {
 
 :root {
 
-    /* color */
+    /*=======================
+               colors
+    ========================= */
     --black-color: rgb(17, 17, 17);
     --red-color: #6e1423;
     --white-color: rgb(241, 241, 241);
@@ -23,26 +25,34 @@ body {
     --purple-color: #8B5CF6;
     --pink-color: #EC4899;
 
-    /* FontFamily */
+    /*=======================
+            Font Family
+    ========================= */
     --heading-font: "Bodoni Moda SC", serif;
     --normal-font: "Allura", cursive;
 
-    /* font-sizes */
-    --min-font-sz: 1rem;
-    --sm-font-sz: 1.5rem;
-    --med-font-sz: 2rem;
-    --med2-font-sz: 2.5rem;
-    --lg-font-sz: 3rem;
-    --hil-font-sz: 4rem;
-    --xl-font-sz: 5rem;
-    --xxl-font-sz: 6rem;
-    --xxxl-font-sz: 7rem;
+    /*=======================
+            Font sizes
+    ========================= */
+    --fs-h1: clamp(3rem, 6vw, 6rem);
+    --fs-h2: clamp(2.5rem, 5vw, 4.5rem);
+    --fs-h3: clamp(2rem, 4vw, 3rem);
+    --fs-h4: clamp(1.5rem, 3vw, 2rem);
+    --fs-h5: clamp(1rem, 2vw, 1.5rem);
+    --fs-p: 2rem;
 
     /* layout */
     --max-page-width: 1400px;
 }
 
+.container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin: 0 auto;
+    max-width: 100%;
 
+}
 
 img {
     display: block;
@@ -51,7 +61,14 @@ img {
     object-fit: cover;
 }
 
-/* ===== Section 1 ===== */
+/* ===============================
+              Section 1
+==================================*/
+.section1 {
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+}
 
 .section1 nav {
     margin: 0 auto;
@@ -62,7 +79,7 @@ img {
 }
 
 .logo i {
-    font-size: var(--med-font-sz);
+    font-size: var(--fs-h5);
 }
 
 .navs {
@@ -70,7 +87,7 @@ img {
     justify-content: space-between;
     align-items: center;
     gap: 70px;
-    font-size: var(--med-font-sz);
+    font-size: var(--fs-h5);
     font-family: var(--heading-font);
 }
 
@@ -79,7 +96,6 @@ img {
 }
 
 .containerBox1 {
-    margin: 60px 70px 70px 70px;
     display: flex;
     flex-direction: column;
 }
@@ -88,10 +104,13 @@ img {
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
+    height: 100%;
+    padding-top: 40px;
 }
 
 .photoContainer1 {
-    width: 25%;
+    margin: 0 auto;
+    width: 20%;
     color: var(--white-color);
 }
 
@@ -104,15 +123,13 @@ img {
 }
 
 .message1 p {
-    font-size: var(--lg-font-sz);
+    font-size: var(--fs-h4);
     font-family: var(--normal-font);
 }
 
 .photoContainer2 {
     width: 25%;
-    height: 100%;
     color: var(--white-color);
-    margin: 30px 40px 0px 50px;
 }
 
 .pic2 {
@@ -120,7 +137,7 @@ img {
     border: 6px solid var(--white-color);
     overflow: hidden;
     margin-bottom: 10px;
-    height: 650px;
+    height: 100%;
 }
 
 .pic2 img {
@@ -135,65 +152,73 @@ img {
 }
 
 .title h1 {
-    font-size: var(--xxl-font-sz);
+    font-size: var(--fs-h1);
     font-family: var(--heading-font);
     text-align: center;
+    margin-top: 30px;
 }
 
 .photoContainer3 {
-    width: 25%;
-    margin-top: 120px;
+    margin: 0 auto;
+    width: 20%;
+    margin-top: 80px;
 }
 
-/* ===== Section 2 ===== */
+/* ===============================
+              Section 2
+==================================*/
 
 .section2 {
     display: flex;
     justify-content: center;
+    padding: 100px 0px 100px 0px;
 }
 
 .containerBox2 {
-    width: 100%;
     display: flex;
-    margin: 80px 70px 70px 70px;
+    flex-direction: column;
+    height: 100%;
 }
 
 .thoughts {
     margin: 0 auto;
     display: flex;
-    justify-content: space-around;
-    width: 100vw;
-    padding-bottom: 120px;
+    justify-content:center;
+    gap: 120px;
+}
+
+.titleArea {
+    margin: 0 auto;
+    width: fit-content;
 }
 
 .titleArea h1 {
     font-family: var(--normal-font);
-    font-size: var(--xl-font-sz);
+    font-size: var(--fs-h3);
 }
 
 .paragraphArea {
-    width: 40%;
     display: flex;
     align-items: center;
     justify-content: center;
     margin: 50px 0px 0px 0px;
-}
-
-.paragraphArea p span {
-    display: inline-block;
-    white-space: nowrap;
+    width: 30vw;
+    margin: 0 auto;
 }
 
 .paragraphArea p {
     font-family: var(--normal-font);
-    font-size: var(--lg-font-sz);
+    font-size: var(--fs-p);
 }
 
 .photoContainer4 {
-    height: fit-content;
+    margin: 0 auto;
+    width: 25%;
 }
 
-/* ===== Section 3 ===== */
+/* ===============================
+              Section 3
+==================================*/
 .section3 {
     display: flex;
     justify-content: center;
@@ -203,7 +228,7 @@ img {
 .containerBox3 {
     display: flex;
     justify-content: space-between;
-    padding: 0px 70px;
+    margin: 4vw;
     flex-direction: column;
 }
 
@@ -212,33 +237,29 @@ img {
     align-content: center;
     justify-content: center;
     margin-bottom: 180px;
-    font-size: var(--lg-font-sz);
+    font-size: var(--fs-h3);
     font-family: var(--heading-font);
 }
 
 .GroupofCards {
-    width: 100%;
     height: 100%;
     display: flex;
+    justify-content: center;
     gap: 40px;
+}
+
+.card1 {
+    /* height: 100vh; */
+    width: 100%;
+    display: flex;
+    flex-direction: column;
     justify-content: center;
 }
 
-.card1,
-.card2 {
-    width: fit-content;
-    height: 80%;
-}
-
-.card2 {
-    position: relative;
-    top: -70px;
-    height: 800px;
-}
-
 .card1 img {
+    /* height: 100%; */
+    width: 90%;
     padding: 15px;
-    height: 95%;
     background-color: white;
     padding-bottom: 50px;
 }
@@ -539,10 +560,10 @@ img {
     font-size: var(--xxxl-font-sz);
     display: flex;
     align-items: center;
-      letter-spacing: 10px;
+    letter-spacing: 10px;
 }
 
-.firstHead span{
+.firstHead span {
     display: inline-block;
-  
+
 }
