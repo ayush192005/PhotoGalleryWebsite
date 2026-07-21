@@ -51,7 +51,6 @@ body {
     flex-direction: column;
     margin: 0 auto;
     max-width: 100%;
-
 }
 
 img {
@@ -68,6 +67,7 @@ img {
     width: 100%;
     height: 100%;
     margin: 0 auto;
+
 }
 
 .section1 nav {
@@ -98,13 +98,14 @@ img {
 .containerBox1 {
     display: flex;
     flex-direction: column;
+    margin-bottom: 200px;
 }
 
 .threePhotosContainer {
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
-    height: 100%;
+    /* height: 80%; */
     padding-top: 40px;
 }
 
@@ -128,7 +129,7 @@ img {
 }
 
 .photoContainer2 {
-    width: 25%;
+    width: 20%;
     color: var(--white-color);
 }
 
@@ -136,8 +137,7 @@ img {
     width: fit-content;
     border: 6px solid var(--white-color);
     overflow: hidden;
-    margin-bottom: 10px;
-    height: 100%;
+    height: clamp(300px, 50vw, 600px);
 }
 
 .pic2 img {
@@ -171,7 +171,7 @@ img {
 .section2 {
     display: flex;
     justify-content: center;
-    padding: 100px 0px 100px 0px;
+    padding: 70px 0px 70px 0px;
 }
 
 .containerBox2 {
@@ -183,7 +183,7 @@ img {
 .thoughts {
     margin: 0 auto;
     display: flex;
-    justify-content:center;
+    justify-content: center;
     gap: 120px;
     max-width: 100%;
 }
@@ -195,7 +195,7 @@ img {
 
 .titleArea h1 {
     font-family: var(--normal-font);
-    font-size: var(--fs-h3);
+    font-size: var(--fs-h2);
 }
 
 .paragraphArea {
@@ -209,7 +209,7 @@ img {
 
 .paragraphArea p {
     font-family: var(--normal-font);
-    font-size: var(--fs-p);
+    font-size: var(--fs-h3);
 }
 
 .photoContainer4 {
@@ -244,7 +244,7 @@ img {
 }
 
 .GroupofCards {
-    height: 100%;
+    /* height: 100%; */
     display: flex;
     justify-content: center;
     gap: 40px;
@@ -252,19 +252,22 @@ img {
 }
 
 .card1 {
-
-    width: 100%;
+    width: fit-content;
+    height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    /* align-items: center; */
 }
 
 .card1 img {
-    /* height: 100%; */
-    width: 90%;
+    height: 100%;
+    width: 80%;
     padding: 15px;
     background-color: white;
     padding-bottom: 50px;
+    /* margin: 0 auto; */
+    
 }
 
 .card2 img {
