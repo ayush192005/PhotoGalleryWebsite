@@ -18,7 +18,7 @@ body {
     /*=======================
                colors
     ========================= */
-    --black-color: rgb(17, 17, 17);
+    --black-color: rgb(6, 6, 6);
     --red-color: #6e1423;
     --white-color: rgb(241, 241, 241);
     --invory-color: #f4eade;
@@ -65,30 +65,22 @@ img {
 .containerBox4,
 .containerBox6,
 .containerBox7,
-.containerBox8{
-    width:100%;
-    max-width:1400px;
-    margin:auto;
+.containerBox8 {
+    width: 100%;
+    max-width: 1400px;
+    margin: auto;
 }
 
-.cursor{
-    width: 60px;
-    height: 60px;
-    background-color: rgb(235, 234, 234);
+.cursor {
+    width: 20px;
+    height: 20px;
+    background-color: rgb(252, 252, 252);
     border-radius: 50%;
     position: fixed;
-    z-index: 0;
+    z-index: 9999;
     transform: translate(-50%, -50%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }
 
-.cursor img{
-    height: 100%;
-    object-fit: cover;
-    border-radius: 999px;
-}
 /* ===============================
               Section 1
 ==================================*/
@@ -126,7 +118,7 @@ img {
     justify-content: center;
 }
 
-.mainContent{
+.mainContent {
     padding-top: 40px;
     margin: 0 auto;
     width: 100%;
@@ -174,6 +166,10 @@ img {
 .pic2 img {
     height: 100%;
     object-fit: cover;
+}
+
+.img2 img{
+    height: 250px;
 }
 
 .title {
@@ -328,10 +324,9 @@ img {
     margin: 0 auto;
     flex-direction: column;
     gap: 60px;
-
 }
 
-.deckContainer{
+.deckContainer {
     margin: 0 auto;
 }
 
@@ -344,7 +339,7 @@ img {
 .passage1 {
     width: 50%;
     display: flex;
-    align-content: center;
+    align-items: center;
 }
 
 .passage1 p {
@@ -356,6 +351,7 @@ img {
     border: 10px solid var(--white-color);
     border-top-left-radius: 20px;
     border-bottom-right-radius: 30px;
+    width: 100%;
 }
 
 .lowerDeck {
@@ -367,7 +363,7 @@ img {
 .passage2 {
     width: 50%;
     display: flex;
-    align-content: center;
+    align-items: center;
 }
 
 .passage2 p {
@@ -379,6 +375,7 @@ img {
     border: 10px solid var(--white-color);
     border-top-left-radius: 20px;
     border-bottom-right-radius: 30px;
+    width: 100%;
 }
 
 /* ===============================
@@ -392,10 +389,8 @@ img {
 .videoSection {
     display: flex;
     justify-content: center;
-}
-
-.videoSection video {
-    height: 93%;
+    height: 100%;
+    width: 100%;
 }
 
 /* ===============================
@@ -426,7 +421,6 @@ img {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 20px;
-    /* max-width: 1100px; */
     width: 100%;
 }
 
@@ -520,8 +514,8 @@ img {
 }
 
 .circle1 {
-    width: 80%;
-    height: 50%;
+    width: 200px;
+    height: 200px;
     border-radius: 50%;
     background-color: white;
 }
@@ -547,14 +541,17 @@ img {
     width: 100%;
     height: 100%;
 }
+
 /* ===============================
               Section 7
 ==================================*/
 
+.partyPopVideo{
+    position: absolute;
+}
 .section7 {
     display: flex;
     justify-content: center;
-    margin-bottom: 120px;
 }
 
 .containerBox7 {
@@ -570,57 +567,61 @@ img {
     margin-bottom: 100px;
     font-size: var(--fs-h4);
     font-family: var(--heading-font);
+    position: relative;
 }
 
-.slidingCards {
-    width: max-content;
-    display: flex;
-    gap: 30px;
-    flex-shrink: 0;
+.swiper {
+    width: 450px;
+    height: 550px;
 }
 
-.slidcard1 {
-    width: 300px;
-    height: 400px;
-    flex-shrink: 0;
-    border: 6px solid var(--white-color);
-}
-
-.slidcard1 img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-}
-
-/* ===============================
-              Section 8
-==================================*/
-
-.section8 {
-    display: flex;
-    justify-content: center;
-    margin: 18vw;
-}
-
-.containerBox8 {
-    display: flex;
-    justify-content: center;
-    margin: 120px 30px 30px 30px;
-}
-
-.containerBox8 h1 {
-    height: 100%;
-    width: 100%;
-    text-align: center;
-    font-family: var(--heading-font);
-    font-size: var(--fs-h3);
+.swiper-slide {
     display: flex;
     align-items: center;
-    letter-spacing: 10px;
+    justify-content: center;
+    border-radius: 18px;
+    font-size: 22px;
+    font-weight: bold;
+    color: #fff;
 }
 
-.firstHead span {
-    display: inline-block;
-
+.swiper-slide:nth-child(1n) {
+    background-color: rgb(206, 17, 17);
 }
+
+.swiper-slide:nth-child(2n) {
+    background-color: rgb(0, 140, 255);
+}
+
+.swiper-slide:nth-child(3n) {
+    background-color: rgb(10, 184, 111);
+}
+
+.swiper-slide:nth-child(4n) {
+    background-color: rgb(211, 122, 7);
+}
+
+.swiper-slide:nth-child(5n) {
+    background-color: rgb(118, 163, 12);
+}
+
+.swiper-slide:nth-child(6n) {
+    background-color: rgb(180, 10, 47);
+}
+
+.swiper-slide:nth-child(7n) {
+    background-color: rgb(35, 99, 19);
+}
+
+.swiper-slide:nth-child(8n) {
+    background-color: rgb(0, 68, 255);
+}
+
+.swiper-slide:nth-child(9n) {
+    background-color: rgb(218, 12, 218);
+}
+
+.swiper-slide:nth-child(10n) {
+    background-color: rgb(54, 94, 77);
+}
+
