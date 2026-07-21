@@ -1,4 +1,62 @@
-// Navigation-Animation
+function locoScroller(){
+    gsap.registerPlugin(ScrollTrigger);
+
+// Using Locomotive Scroll from Locomotive https://github.com/locomotivemtl/locomotive-scroll
+
+const locoScroll = new LocomotiveScroll({
+  el: document.querySelector(".container"),
+  smooth: true
+});
+// each time Locomotive Scroll updates, tell ScrollTrigger to update too (sync positioning)
+locoScroll.on("scroll", ScrollTrigger.update);
+
+// tell ScrollTrigger to use these proxy methods for the ".smooth-scroll" element since Locomotive Scroll is hijacking things
+ScrollTrigger.scrollerProxy(".container", {
+  scrollTop(value) {
+    return arguments.length ? locoScroll.scrollTo(value, 0, 0) : locoScroll.scroll.instance.scroll.y;
+  }, // we don't have to define a scrollLeft because we're only scrolling vertically.
+  getBoundingClientRect() {
+    return {top: 0, left: 0, width: window.innerWidth, height: window.innerHeight};
+  },
+  // LocomotiveScroll handles things completely differently on mobile devices - it doesn't even transform the container at all! So to get the correct behavior and avoid jitters, we should pin things with position: fixed on mobile. We sense it by checking to see if there's a transform applied to the container (the LocomotiveScroll-controlled element).
+  pinType: document.querySelector(".container").style.transform ? "transform" : "fixed"
+});
+
+// each time the window updates, we should refresh ScrollTrigger and then update LocomotiveScroll. 
+ScrollTrigger.addEventListener("refresh", () => locoScroll.update());
+
+// after everything is set up, refresh() ScrollTrigger and update LocomotiveScroll because padding may have been added for pinning, etc.
+ScrollTrigger.refresh();
+
+}
+locoScroller()
+
+function followcursor() {
+    var pageContent = document.querySelector(".container");
+    var cursor = document.querySelector(".cursor");
+    pageContent.addEventListener("mousemove", function (dets) {
+        gsap.to(cursor, {
+            x: dets.x,
+            y: dets.y
+        })
+    })
+
+    pageContent.addEventListener("mouseenter", function () {
+        gsap.to(cursor, {
+            opacity: 1,
+            scale: 1,
+
+        })
+    })
+
+    // pageContent.addEventListener("mouseleave", function () {
+    //     gsap.to(cursor, {
+    //         opacity: 0,
+    //         scale: 0,
+    //     })
+    // })
+}
+followcursor()
 
 function homePageAnimation() {
     var tl = gsap.timeline();
@@ -49,9 +107,10 @@ function homePageAnimation() {
 homePageAnimation()
 
 function seciontwoAnimations() {
+
     var t2 = gsap.timeline({
         scrollTrigger: {
-            trigger: ".section2",
+            trigger: ".container",
             start: "top 70%",
             end: "top 0%",
         }
@@ -64,10 +123,10 @@ function seciontwoAnimations() {
     });
 
     t2.from(".paragraphArea p", {
-        y: -100,
+        y: 120,
+        stagger: 0.2,
         opacity: 0,
         duration: 1.5,
-        ease: "expoScale(0.5,7,none)",
     });
 
     t2.from(".pic4", {
@@ -82,7 +141,7 @@ seciontwoAnimations()
 function sectionthreeAnimations() {
     var t3 = gsap.timeline({
         scrollTrigger: {
-            trigger: ".section3",
+            trigger: ".container",
             start: "top 50%",
             end: "top 0",
             scrub: 2,
@@ -107,7 +166,7 @@ sectionthreeAnimations()
 function setionfourAnimations() {
     var t4 = gsap.timeline({
         scrollTrigger: {
-            trigger: ".section4",
+            trigger: ".container",
             start: "top 50%",
             end: "top 0",
             scrub: 2,
@@ -144,12 +203,11 @@ setionfourAnimations()
 function sectionfifthAnimation() {
     var t5 = gsap.timeline({
         scrollTrigger: {
-            trigger: ".section6",
+            trigger: ".container",
             start: "top 50%",
             end: "top 0",
             scrub: 2,
         }
-
     })
 
     t5.from(".passage3 p", {
@@ -217,7 +275,7 @@ sectionfifthAnimation()
 function sectionseventhAnimation() {
     var t6 = gsap.timeline({
         scrollTrigger: {
-            trigger: ".section7",
+            trigger: ".container",
             start: "top 10%",
             end: "top 0",
             // scrub: 2,
@@ -297,3 +355,4 @@ function sectioneightAnimation() {
 
 }
 sectioneightAnimation();
+
