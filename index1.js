@@ -1,64 +1,89 @@
+let locoScroll;
 function locoScroller() {
+
     gsap.registerPlugin(ScrollTrigger);
 
-    // Using Locomotive Scroll from Locomotive https://github.com/locomotivemtl/locomotive-scroll
-
-    const locoScroll = new LocomotiveScroll({
+    locoScroll = new LocomotiveScroll({
         el: document.querySelector(".container"),
         smooth: true
     });
-    // each time Locomotive Scroll updates, tell ScrollTrigger to update too (sync positioning)
+
     locoScroll.on("scroll", ScrollTrigger.update);
 
-    // tell ScrollTrigger to use these proxy methods for the ".smooth-scroll" element since Locomotive Scroll is hijacking things
     ScrollTrigger.scrollerProxy(".container", {
         scrollTop(value) {
-            return arguments.length ? locoScroll.scrollTo(value, 0, 0) : locoScroll.scroll.instance.scroll.y;
-        }, // we don't have to define a scrollLeft because we're only scrolling vertically.
-        getBoundingClientRect() {
-            return { top: 0, left: 0, width: window.innerWidth, height: window.innerHeight };
+            return arguments.length
+                ? locoScroll.scrollTo(value, 0, 0)
+                : locoScroll.scroll.instance.scroll.y;
         },
-        // LocomotiveScroll handles things completely differently on mobile devices - it doesn't even transform the container at all! So to get the correct behavior and avoid jitters, we should pin things with position: fixed on mobile. We sense it by checking to see if there's a transform applied to the container (the LocomotiveScroll-controlled element).
-        pinType: document.querySelector(".container").style.transform ? "transform" : "fixed"
+        getBoundingClientRect() {
+            return {
+                top: 0,
+                left: 0,
+                width: window.innerWidth,
+                height: window.innerHeight
+            };
+        },
+        pinType: document.querySelector(".container").style.transform
+            ? "transform"
+            : "fixed"
     });
 
-    // each time the window updates, we should refresh ScrollTrigger and then update LocomotiveScroll. 
     ScrollTrigger.addEventListener("refresh", () => locoScroll.update());
 
-    // after everything is set up, refresh() ScrollTrigger and update LocomotiveScroll because padding may have been added for pinning, etc.
     ScrollTrigger.refresh();
-
 }
-locoScroller()
+locoScroller();
 
 function followcursor() {
+
     var pageContent = document.querySelector(".container");
     var cursor = document.querySelector(".cursor");
+    var nav = document.querySelector("nav");
+
     pageContent.addEventListener("mousemove", function (dets) {
         gsap.to(cursor, {
             x: dets.x,
-            y: dets.y
-        })
-    })
+            y: dets.y,
+            duration: 0.15
+        });
+    });
 
     pageContent.addEventListener("mouseenter", function () {
         gsap.to(cursor, {
             opacity: 1,
-            scale: 1,
-              ease: "power3.out",
-        overwrite: "auto",
-
-        })
-    })
+            scale: 1
+        });
+    });
 
     // pageContent.addEventListener("mouseleave", function () {
     //     gsap.to(cursor, {
     //         opacity: 0,
-    //         scale: 0,
-    //     })
-    // })
+    //         scale: 0
+    //     });
+    // });
+
+    // Hide cursor on navbar
+    nav.addEventListener("mouseenter", function () {
+        gsap.to(cursor, {
+            opacity: 0,
+            scale: 0,
+            duration: 0.2
+        });
+    });
+
+    // Show cursor after leaving navbar
+    nav.addEventListener("mouseleave", function () {
+        gsap.to(cursor, {
+            opacity: 1,
+            scale: 1,
+            duration: 0.2
+        });
+    });
+
 }
-followcursor()
+
+followcursor();
 
 function homePageAnimation() {
     var tl = gsap.timeline();
@@ -216,11 +241,34 @@ function sectionFifthAnimation() {
         }
     })
 
-    t5.from(".videoSection video",{
-        y:70,
-        opacity:0,
-        duration:0.8,
+    t5.from(".videoSection video", {
+        y: 70,
+        opacity: 0,
+        duration: 0.8,
     })
+    const rowRight = document.querySelector(".rowRight");
+
+    gsap.to(rowRight, {
+        x: () => -(rowRight.scrollWidth / 2),
+        duration: 20,
+        ease: "none",
+        repeat: -1
+    });
+
+    const rowLeft = document.querySelector(".rowLeft");
+
+    gsap.fromTo(
+        rowLeft,
+        {
+            x: -(rowLeft.scrollWidth / 2)
+        },
+        {
+            x: 0,
+            duration: 20,
+            ease: "none",
+            repeat: -1
+        }
+    );
 }
 sectionFifthAnimation()
 
@@ -273,3 +321,10 @@ function sectionseventhAnimation() {
 }
 sectionseventhAnimation();
 
+function reachAtSections() {
+    document.querySelector("#galleryBtn").addEventListener("click", function (e) {
+        e.preventDefault();
+        locoScroll.scrollTo("#gallery");
+    });
+}
+reachAtSections()
