@@ -50,7 +50,9 @@ body {
     justify-content: center;
     flex-direction: column;
     width: 100%;
+    min-height: 100vh;
 }
+
 
 img {
     display: block;
@@ -107,7 +109,7 @@ img {
     font-family: var(--heading-font);
 }
 
-.navs a{
+.navs a {
     cursor: pointer;
     text-decoration: none;
     color: var(--white-color);
@@ -129,49 +131,49 @@ img {
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
-    gap: 120px;
-    padding: 50px 45px 0px 45px ;
-
+    padding: 50px 45px 0px 45px;
+    width: 100%;
+    min-height: clamp(100px, 50vw, 600px);
 }
 
 .photoContainer1 {
-    width: 20%;
     color: var(--white-color);
+    width: clamp(400px, 40vw, 320px);
 }
 
-.pic1,
-.pic3 {
-    width: fit-content;
+.pic1 {
+    width: 100%;
+    overflow: hidden;
     border: 6px solid var(--white-color);
     overflow: hidden;
     margin-bottom: 10px;
-    margin: 0 auto;
 }
 
 .message1 p {
-    font-size: var(--fs-h4);
+    font-size: clamp(1.7rem, 1.9vw, 2rem);
     font-family: var(--normal-font);
+    margin-top: 20px;
 }
 
 .photoContainer2 {
-    width: 20%;
     color: var(--white-color);
+    height: clamp(500px, 40vw, 500px);
+    width: clamp(300px, 40vw, 300px);
 }
 
 .pic2 {
     width: fit-content;
     border: 6px solid var(--white-color);
     overflow: hidden;
-    height: clamp(300px, 50vw, 500px);
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
 }
 
 .pic2 img {
     height: 100%;
+    width: 100%;
     object-fit: cover;
-}
-
-.img2 img {
-    height: 250px;
 }
 
 .title {
@@ -181,20 +183,26 @@ img {
 }
 
 .title h1 {
-    font-size: var(--fs-h1);
+    font-size: clamp(4rem, 1.9vw, 10rem);
     font-family: var(--heading-font);
     text-align: center;
 }
 
 .photoContainer3 {
-    width: 20%;
-    /* margin-top: 80px; */
+    margin-top: 40px;
+    width: clamp(350px, 50vw, 200px);
 }
 
-.message1 {
-    width: 100%;
-    margin-top: 30px;
+.pic3 {
+    height: clamp(250px, 30vw, 200px);
+    border: 6px solid var(--white-color);
 }
+
+.pic3 img {
+    width: 100%;
+    height: 100%;
+}
+
 
 /* ===============================
               Section 2
@@ -203,7 +211,6 @@ img {
 .section2 {
     display: flex;
     justify-content: center;
-    padding: 0px 0px 70px 0px;
 }
 
 .containerBox2 {
@@ -215,20 +222,15 @@ img {
 .thoughts {
     margin: 0 auto;
     display: flex;
-    justify-content: center;
-    gap: 120px;
+    justify-content: space-between;
+    gap: 80px;
     max-width: 100%;
-    margin: 100px;
-}
-
-.titleArea {
-    margin: 0 auto;
-    width: fit-content;
+    padding: 100px;
 }
 
 .titleArea h1 {
     font-family: var(--normal-font);
-    font-size: var(--fs-h3);
+    font-size: clamp(3.3rem, 1.7vw, 5rem);
 }
 
 .paragraphArea {
@@ -236,20 +238,37 @@ img {
     align-items: center;
     justify-content: center;
     margin: 50px 0px 0px 0px;
-    width: 30vw;
     margin: 0 auto;
+    max-width: 700px;
 }
 
 .paragraphArea p {
     font-family: var(--normal-font);
-    font-size: var(--fs-h4);
+    font-size: clamp(2.1rem, 1.2vw, 2rem);
     display: inline-block;
 }
 
 .photoContainer4 {
-    margin: 0 auto;
-    width: 25%;
+    color: var(--white-color);
+    width: clamp(400px, 40vw, 350px);
+    flex-shrink: 0;
 }
+
+.pic4 {
+    width: 100%;
+    overflow: hidden;
+    border: 6px solid var(--white-color);
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+
+.pic4 img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
 
 /* ===============================
               Section 3
@@ -380,46 +399,47 @@ img {
 /* ===============================
               Section 5
 ==================================*/
-.section5{
-    display:flex;
-    justify-content:center;
-    overflow:hidden;
-    padding:100px 0;
+.section5 {
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+    padding: 100px 0;
 }
 
-.containerBox5{
-    width:100%;
-    display:flex;
-    flex-direction:column;
-    gap:40px;
+.containerBox5 {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
 }
 
 .movingRowRight,
-.movingRowLeft{
-    width:100%;
-    overflow:hidden;
+.movingRowLeft {
+    width: 100%;
+    overflow: hidden;
 }
 
-.row{
-    display:flex;
-    gap:25px;
-    width:max-content;
+.row {
+    display: flex;
+    gap: 25px;
+    width: max-content;
 }
 
-.card{
-    width:250px;
-    height:380px;
-    flex-shrink:0;
-    border:5px solid white;
-    overflow:hidden;
+.card {
+    width: 250px;
+    height: 380px;
+    flex-shrink: 0;
+    border: 5px solid white;
+    overflow: hidden;
 }
 
-.card img{
-    width:100%;
-    height:100%;
-    object-fit:cover;
-    display:block;
+.card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
 }
+
 /* ===============================
               Section 6
 ==================================*/
@@ -575,7 +595,6 @@ img {
 
 .section7 {
     position: relative;
-    /* min-height:100vh; */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -666,3 +685,103 @@ img {
 .swiper-slide:nth-child(10n) {
     background-color: rgb(54, 94, 77);
 }
+
+/* ===============================
+         Responsive Layout
+==================================*/
+
+@media (max-width:320px) {}
+
+@media (max-width:480px) {}
+
+@media (max-width:720px) {
+    .cursor {
+        display: none;
+    }
+}
+
+@media (max-width:1020px) {
+    .threePhotosContainer {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .photoContainer1,
+    .photoContainer2,
+    .photoContainer3 {
+        margin: 0 auto;
+    }
+
+    .message1,
+    .message2 p {
+        text-align: center;
+    }
+
+    .mainContent {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .thoughts {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .paragraphArea p {
+        width: 100%;
+        text-align: center;
+    }
+
+    .titleArea h1 {
+        text-align: center;
+    }
+
+    .photoContainer4 {
+        margin: 0 auto;
+    }
+
+
+
+
+}
+
+@media (max-width:1200px) {
+
+    /* .pic1 {
+        width: clamp(100px, 40vw, 320px);
+    }
+
+    .pic2 {
+        height: clamp(300px, 50vw, 470px);
+        width: clamp(100px, 40vw, 270px);
+    }
+
+    .img2 {
+        width: clamp(100px, 40vw, 270px);
+    } */
+    .threePhotosContainer {
+        display: flex;
+        gap: 40px;
+    }
+
+}
+
+@media (max-width:1380px) {
+    /* .pic1 {
+        width: clamp(100px, 40vw, 320px);
+    }
+
+    .pic2 {
+        height: clamp(400px, 7vw, 470px);
+        width: clamp(100px, 40vw, 270px);
+    }
+
+    .img2 {
+        width: clamp(100px, 40vw, 270px);
+    } */
+
+}
+
+@media (max-width:1400px) {}
