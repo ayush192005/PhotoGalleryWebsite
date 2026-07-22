@@ -36,7 +36,6 @@ function locoScroller() {
 locoScroller();
 
 function followcursor() {
-
     var pageContent = document.querySelector(".container");
     var cursor = document.querySelector(".cursor");
     var nav = document.querySelector("nav");
@@ -44,46 +43,41 @@ function followcursor() {
     pageContent.addEventListener("mousemove", function (dets) {
         gsap.to(cursor, {
             x: dets.x,
-            y: dets.y,
-            duration: 0.15
-        });
-    });
+            y: dets.y
+        })
+    })
 
     pageContent.addEventListener("mouseenter", function () {
         gsap.to(cursor, {
             opacity: 1,
-            scale: 1
-        });
-    });
+            scale: 1,
+            ease: "power3.out",
+            overwrite: "auto",
 
-    // pageContent.addEventListener("mouseleave", function () {
-    //     gsap.to(cursor, {
-    //         opacity: 0,
-    //         scale: 0
-    //     });
-    // });
+        })
+    })
 
-    // Hide cursor on navbar
+    pageContent.addEventListener("mouseleave", function () {
+        gsap.to(cursor, {
+            opacity: 0,
+            scale: 0,
+        })
+    })
+
     nav.addEventListener("mouseenter", function () {
         gsap.to(cursor, {
             opacity: 0,
             scale: 0,
-            duration: 0.2
-        });
-    });
-
-    // Show cursor after leaving navbar
+        })
+    })
     nav.addEventListener("mouseleave", function () {
         gsap.to(cursor, {
             opacity: 1,
             scale: 1,
-            duration: 0.2
-        });
-    });
-
+        })
+    })
 }
-
-followcursor();
+followcursor()
 
 function homePageAnimation() {
     var tl = gsap.timeline();
