@@ -18,7 +18,7 @@ body {
     /*=======================
                colors
     ========================= */
-    --black-color: rgb(6, 6, 6);
+    --black-color: rgb(0, 0, 0);
     --red-color: #6e1423;
     --white-color: rgb(241, 241, 241);
     --invory-color: #f4eade;
@@ -90,7 +90,7 @@ img {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 40px 60px;
+    padding: 20px 60px;
     width: 100%;
 }
 
@@ -107,8 +107,10 @@ img {
     font-family: var(--heading-font);
 }
 
-.navs h4 {
+.navs a{
     cursor: pointer;
+    text-decoration: none;
+    color: var(--white-color);
 }
 
 .containerBox1 {
@@ -119,7 +121,6 @@ img {
 }
 
 .mainContent {
-    padding-top: 40px;
     margin: 0 auto;
     width: 100%;
 }
@@ -127,8 +128,9 @@ img {
 .threePhotosContainer {
     margin: 0 auto;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     gap: 120px;
+    padding: 50px 45px 0px 45px ;
 
 }
 
@@ -168,7 +170,7 @@ img {
     object-fit: cover;
 }
 
-.img2 img{
+.img2 img {
     height: 250px;
 }
 
@@ -182,12 +184,11 @@ img {
     font-size: var(--fs-h1);
     font-family: var(--heading-font);
     text-align: center;
-    margin-top: 30px;
 }
 
 .photoContainer3 {
     width: 20%;
-    margin-top: 80px;
+    /* margin-top: 80px; */
 }
 
 .message1 {
@@ -217,7 +218,7 @@ img {
     justify-content: center;
     gap: 120px;
     max-width: 100%;
-    padding: 60px;
+    margin: 100px;
 }
 
 .titleArea {
@@ -227,7 +228,7 @@ img {
 
 .titleArea h1 {
     font-family: var(--normal-font);
-    font-size: var(--fs-h2);
+    font-size: var(--fs-h3);
 }
 
 .paragraphArea {
@@ -324,6 +325,8 @@ img {
     margin: 0 auto;
     flex-direction: column;
     gap: 60px;
+    margin: 80px;
+    padding: 50px;
 }
 
 .deckContainer {
@@ -342,8 +345,9 @@ img {
     align-items: center;
 }
 
-.passage1 p {
-    font-size: var(--fs-h3);
+.passage1,
+.passage2 p {
+    font-size: var(--fs-h4);
     font-family: var(--normal-font);
 }
 
@@ -366,11 +370,6 @@ img {
     align-items: center;
 }
 
-.passage2 p {
-    font-size: var(--fs-h3);
-    font-family: var(--normal-font);
-}
-
 .lowerDeckImage img {
     border: 10px solid var(--white-color);
     border-top-left-radius: 20px;
@@ -381,18 +380,46 @@ img {
 /* ===============================
               Section 5
 ==================================*/
-.section5 {
-    display: flex;
-    justify-content: center;
+.section5{
+    display:flex;
+    justify-content:center;
+    overflow:hidden;
+    padding:100px 0;
 }
 
-.videoSection {
-    display: flex;
-    justify-content: center;
-    height: 100%;
-    width: 100%;
+.containerBox5{
+    width:100%;
+    display:flex;
+    flex-direction:column;
+    gap:40px;
 }
 
+.movingRowRight,
+.movingRowLeft{
+    width:100%;
+    overflow:hidden;
+}
+
+.row{
+    display:flex;
+    gap:25px;
+    width:max-content;
+}
+
+.card{
+    width:250px;
+    height:380px;
+    flex-shrink:0;
+    border:5px solid white;
+    overflow:hidden;
+}
+
+.card img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+}
 /* ===============================
               Section 6
 ==================================*/
@@ -546,28 +573,43 @@ img {
               Section 7
 ==================================*/
 
-.partyPopVideo{
-    position: absolute;
-}
 .section7 {
+    position: relative;
+    /* min-height:100vh; */
     display: flex;
     justify-content: center;
-}
-
-.containerBox7 {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    margin: 120px 30px 30px 30px;
+    align-items: center;
     overflow: hidden;
 }
 
-.title3 {
-    text-align: center;
-    margin-bottom: 100px;
-    font-size: var(--fs-h4);
-    font-family: var(--heading-font);
+.partyPopVideo {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.partyPopVideo video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.containerBox7 {
     position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+    padding: 100px 30px;
+}
+
+.title3 {
+    font-family: var(--heading-font);
+    font-size: var(--fs-h4);
+    margin-bottom: 80px;
 }
 
 .swiper {
@@ -624,4 +666,3 @@ img {
 .swiper-slide:nth-child(10n) {
     background-color: rgb(54, 94, 77);
 }
-
