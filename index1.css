@@ -141,7 +141,7 @@ img {
 .photoContainer1 {
     color: var(--white-color);
     width: clamp(250px, 28vw, 400px);
-    height: clamp(360px, 25vw, 400px);
+    /* height: clamp(360px, 25vw, 400px); */
 }
 
 .pic1 {
@@ -149,7 +149,8 @@ img {
     border: 6px solid var(--white-color);
     margin-bottom: 10px;
 }
-.pic1 img{
+
+.pic1 img {
     width: 100%;
 }
 
@@ -159,24 +160,21 @@ img {
     margin-top: 20px;
 }
 
-/* .photoContainer1,
-.photoContainer3,
-.photoContainer2 {
+.photoContainer1,
+.photoContainer3 {
     flex: 1;
-} */
+}
 
 
 .photoContainer2 {
     color: var(--white-color);
-    width: clamp(100px, 30vw, 250px);
-    height: clamp(200px, 30vw, 500px);
 }
 
 .pic2 {
     border: 6px solid var(--white-color);
     overflow: hidden;
-    width: 100%;
-    height: 100%;
+    width: clamp(300px, 10vw, 200px);
+    height: clamp(500px, 10vw, 300px);
 }
 
 .pic2 img {
@@ -200,11 +198,14 @@ img {
 .photoContainer3 {
     margin-top: 40px;
     width: clamp(350px, 40vw, 200px);
+    height: 100%;
 }
 
 .pic3 {
-    height: clamp(200px, 30vw, 700px);
+    /* height: clamp(200px, 30vw, 700px); */
     border: 6px solid var(--white-color);
+    width: 100%;
+    height: 100%;
 }
 
 .pic3 img {
@@ -254,6 +255,10 @@ img {
 .paragraphArea p {
     font-family: var(--normal-font);
     font-size: clamp(2.1rem, 1.2vw, 2rem);
+    display: inline-block;
+}
+
+.paragraphArea p span {
     display: inline-block;
 }
 
@@ -750,9 +755,6 @@ img {
     .photoContainer4 {
         margin: 0 auto;
     }
-
-
-
 
 }
 
