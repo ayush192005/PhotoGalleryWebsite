@@ -135,20 +135,22 @@ img {
     justify-content: space-between;
     padding: 90px 60px 0px 60px;
     width: min(100%, 1800px);
-    min-height: 700px;
     gap: 200px;
 }
 
 .photoContainer1 {
     color: var(--white-color);
-    width: clamp(250px, 28vw, 600px);
-    height: clamp(360px, 40vw, 500px);
+    width: clamp(250px, 28vw, 400px);
+    height: clamp(360px, 25vw, 400px);
 }
 
 .pic1 {
     overflow: hidden;
     border: 6px solid var(--white-color);
     margin-bottom: 10px;
+}
+.pic1 img{
+    width: 100%;
 }
 
 .message1 p {
@@ -157,24 +159,23 @@ img {
     margin-top: 20px;
 }
 
-.photoContainer1,
-.photoContainer3 {
-    flex: 1;
-}
-
+/* .photoContainer1,
+.photoContainer3,
 .photoContainer2 {
-    flex: 0.9;
-}
+    flex: 1;
+} */
+
 
 .photoContainer2 {
     color: var(--white-color);
-    /* height: clamp(500px, 40vw, 550px);
-    width: clamp(300px, 40vw, 400px); */
+    width: clamp(100px, 30vw, 250px);
+    height: clamp(200px, 30vw, 500px);
 }
 
 .pic2 {
     border: 6px solid var(--white-color);
     overflow: hidden;
+    width: 100%;
     height: 100%;
 }
 
@@ -198,11 +199,11 @@ img {
 
 .photoContainer3 {
     margin-top: 40px;
-    /* width: clamp(350px, 40vw, 200px); */
+    width: clamp(350px, 40vw, 200px);
 }
 
 .pic3 {
-    /* height: clamp(250px, 30vw, 700px); */
+    height: clamp(200px, 30vw, 700px);
     border: 6px solid var(--white-color);
 }
 
