@@ -5,17 +5,25 @@ function locoScroller() {
 
     locoScroll = new LocomotiveScroll({
         el: document.querySelector(".container"),
-        smooth: true
+        smooth: true,
+        smartphone: {
+            smooth: true
+        },
+        tablet: {
+            smooth: true
+        }
     });
 
     locoScroll.on("scroll", ScrollTrigger.update);
 
     ScrollTrigger.scrollerProxy(".container", {
+
         scrollTop(value) {
             return arguments.length
                 ? locoScroll.scrollTo(value, 0, 0)
                 : locoScroll.scroll.instance.scroll.y;
         },
+
         getBoundingClientRect() {
             return {
                 top: 0,
@@ -24,6 +32,7 @@ function locoScroller() {
                 height: window.innerHeight
             };
         },
+
         pinType: document.querySelector(".container").style.transform
             ? "transform"
             : "fixed"
@@ -32,8 +41,37 @@ function locoScroller() {
     ScrollTrigger.addEventListener("refresh", () => locoScroll.update());
 
     ScrollTrigger.refresh();
+
+    window.addEventListener("load", () => {
+        locoScroll.update();
+        ScrollTrigger.refresh();
+    });
 }
 locoScroller();
+function loader() {
+    var tone = gsap.timeline();
+
+    tone.from(".loader span", {
+        x: 40,
+        opacity: 0,
+        duration: 1.5,
+        stagger: 0.1,
+    })
+
+    tone.to(".loader span", {
+        x: -30,
+        opacity: 0,
+        duration: 0.5,
+        stagger: 0.1,
+
+    })
+
+    tone.to(".loader", {
+        opacity: 0,
+        display: "none"
+    })
+}
+loader();
 
 function followcursor() {
     var pageContent = document.querySelector(".container");
@@ -135,6 +173,8 @@ function seciontwoAnimations() {
             scroller: ".container",
             start: "top 80%",
             end: "top 0%",
+            invalidateOnRefresh: true,
+            markers: true,
         }
     });
 
@@ -144,11 +184,11 @@ function seciontwoAnimations() {
         duration: 1
     }, "same2");
 
-    t2.from(".paragraphArea p", {
+    t2.from(".paragraphArea p span", {
         y: 120,
         stagger: 0.2,
         opacity: 0,
-        duration: 1.5,
+        duration: 0.6,
     });
 
     t2.from(".pic4", {
@@ -168,6 +208,8 @@ function sectionthreeAnimations() {
             start: "top 50%",
             end: "top 0",
             scrub: 2,
+            invalidateOnRefresh: true,
+            markers: true,
         }
     })
 
@@ -194,6 +236,7 @@ function setionfourAnimations() {
             start: "top 50%",
             end: "top 0",
             scrub: 2,
+            invalidateOnRefresh: true
         }
     })
 
@@ -232,6 +275,7 @@ function sectionFifthAnimation() {
             start: "top 70%",
             end: "top 0",
             scrub: 2,
+            invalidateOnRefresh: true
         }
     })
 
@@ -274,6 +318,7 @@ function sectionsixthAnimation() {
             start: "top 70%",
             end: "top 0",
             scrub: 2,
+            invalidateOnRefresh: true
         }
     })
 
@@ -296,10 +341,11 @@ function sectionseventhAnimation() {
     var t6 = gsap.timeline({
         scrollTrigger: {
             trigger: ".section7",
-            scoller: ".container",
+            scroller: ".container",
             start: "top 50%",
             end: "top 0",
             // scrub: 2,
+            invalidateOnRefresh: true
         }
     })
 
