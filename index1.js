@@ -1,47 +1,47 @@
 let locoScroll;
 
-function locoScroller() {
+// function locoScroller() {
 
-    gsap.registerPlugin(ScrollTrigger);
+//     gsap.registerPlugin(ScrollTrigger);
 
-    locoScroll = new LocomotiveScroll({
-        el: document.querySelector(".container"),
-        smooth: true,
-        tablet: { smooth: true },
-        smartphone: { smooth: true }
-    });
+//     locoScroll = new LocomotiveScroll({
+//         el: document.querySelector(".container"),
+//         smooth: true,
+//         tablet: { smooth: true },
+//         smartphone: { smooth: true }
+//     });
 
-    locoScroll.on("scroll", ScrollTrigger.update);
+//     locoScroll.on("scroll", ScrollTrigger.update);
 
-    ScrollTrigger.scrollerProxy(".container", {
-        scrollTop(value) {
-            return arguments.length
-                ? locoScroll.scrollTo(value, 0, 0)
-                : locoScroll.scroll.instance.scroll.y;
-        },
+//     ScrollTrigger.scrollerProxy(".container", {
+//         scrollTop(value) {
+//             return arguments.length
+//                 ? locoScroll.scrollTo(value, 0, 0)
+//                 : locoScroll.scroll.instance.scroll.y;
+//         },
 
-        getBoundingClientRect() {
-            return {
-                top: 0,
-                left: 0,
-                width: window.innerWidth,
-                height: window.innerHeight
-            };
-        },
+//         getBoundingClientRect() {
+//             return {
+//                 top: 0,
+//                 left: 0,
+//                 width: window.innerWidth,
+//                 height: window.innerHeight
+//             };
+//         },
 
-        pinType: "transform"
-    });
+//         pinType: "transform"
+//     });
 
-    ScrollTrigger.addEventListener("refresh", () => locoScroll.update());
-    ScrollTrigger.refresh();
+//     ScrollTrigger.addEventListener("refresh", () => locoScroll.update());
+//     ScrollTrigger.refresh();
 
-    window.addEventListener("resize", () => {
-        locoScroll.update();
-        ScrollTrigger.refresh();
-    });
+//     window.addEventListener("resize", () => {
+//         locoScroll.update();
+//         ScrollTrigger.refresh();
+//     });
 
-}
-locoScroller();
+// }
+// locoScroller();
 
 function loader() {
     var tone = gsap.timeline();
@@ -160,23 +160,37 @@ function homePageAnimation() {
 }
 homePageAnimation()
 
-function seciontwoAnimations() {
 
-    gsap.to(".titleArea h1", {
-        x: 100,
-        duration: 2,
+function sectionTwoAnimations() {
+    const t2 = gsap.timeline({
         scrollTrigger: {
             trigger: ".section2",
             scroller: ".container",
-            start: "top 80%",
-            end: "top 20%",
-            scrub: 2,
+            start: "top 30%",
+            end: "top 0%",
         }
     });
+
+    t2.from(".titleArea h1", {
+        x: -50,
+        opacity: 0,
+        duration: 1.4,
+    },"sam");
+
+    t2.from(".paragraphArea span", {
+        y: 80,
+        opacity: 0,
+        duration: 0.5,
+        stagger: 0.15,
+    });
+
+    t2.from(".pic4", {
+        x: -30,
+        opacity: 0,
+        duration: 0.5,
+    },"sam")
 }
-
-seciontwoAnimations();
-
+sectionTwoAnimations();
 
 function sectionthreeAnimations() {
     var t3 = gsap.timeline({
@@ -185,7 +199,6 @@ function sectionthreeAnimations() {
             scroller: ".container",
             start: "top 50%",
             end: "top 0",
-            scrub: 2,
             invalidateOnRefresh: true,
         }
     })
