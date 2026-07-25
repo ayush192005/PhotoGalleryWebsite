@@ -1,4 +1,5 @@
 let locoScroll;
+
 function locoScroller() {
 
     gsap.registerPlugin(ScrollTrigger);
@@ -6,18 +7,13 @@ function locoScroller() {
     locoScroll = new LocomotiveScroll({
         el: document.querySelector(".container"),
         smooth: true,
-        smartphone: {
-            smooth: true
-        },
-        tablet: {
-            smooth: true
-        }
+        tablet: { smooth: true },
+        smartphone: { smooth: true }
     });
 
     locoScroll.on("scroll", ScrollTrigger.update);
 
     ScrollTrigger.scrollerProxy(".container", {
-
         scrollTop(value) {
             return arguments.length
                 ? locoScroll.scrollTo(value, 0, 0)
@@ -33,21 +29,20 @@ function locoScroller() {
             };
         },
 
-        pinType: document.querySelector(".container").style.transform
-            ? "transform"
-            : "fixed"
+        pinType: "transform"
     });
 
     ScrollTrigger.addEventListener("refresh", () => locoScroll.update());
-
     ScrollTrigger.refresh();
 
-    window.addEventListener("load", () => {
+    window.addEventListener("resize", () => {
         locoScroll.update();
         ScrollTrigger.refresh();
     });
+
 }
 locoScroller();
+
 function loader() {
     var tone = gsap.timeline();
 
@@ -167,38 +162,21 @@ homePageAnimation()
 
 function seciontwoAnimations() {
 
-    var t2 = gsap.timeline({
+    gsap.to(".titleArea h1", {
+        x: 100,
+        duration: 2,
         scrollTrigger: {
             trigger: ".section2",
             scroller: ".container",
             start: "top 80%",
-            end: "top 0%",
-            invalidateOnRefresh: true,
-            markers: true,
+            end: "top 20%",
+            scrub: 2,
         }
     });
-
-    t2.from(".titleArea h1", {
-        y: 50,
-        opacity: 0,
-        duration: 1
-    }, "same2");
-
-    t2.from(".paragraphArea p span", {
-        y: 120,
-        stagger: 0.2,
-        opacity: 0,
-        duration: 0.6,
-    });
-
-    t2.from(".pic4", {
-        y: 50,
-        opacity: 0,
-        duration: 0.5,
-    }, "same2")
-
 }
-seciontwoAnimations()
+
+seciontwoAnimations();
+
 
 function sectionthreeAnimations() {
     var t3 = gsap.timeline({
@@ -209,7 +187,6 @@ function sectionthreeAnimations() {
             end: "top 0",
             scrub: 2,
             invalidateOnRefresh: true,
-            markers: true,
         }
     })
 
@@ -236,7 +213,7 @@ function setionfourAnimations() {
             start: "top 50%",
             end: "top 0",
             scrub: 2,
-            invalidateOnRefresh: true
+            invalidateOnRefresh: true,
         }
     })
 
@@ -279,11 +256,6 @@ function sectionFifthAnimation() {
         }
     })
 
-    t5.from(".videoSection video", {
-        y: 70,
-        opacity: 0,
-        duration: 0.8,
-    })
     const rowRight = document.querySelector(".rowRight");
 
     gsap.to(rowRight, {
@@ -318,7 +290,7 @@ function sectionsixthAnimation() {
             start: "top 70%",
             end: "top 0",
             scrub: 2,
-            invalidateOnRefresh: true
+            invalidateOnRefresh: true,
         }
     })
 
@@ -338,17 +310,6 @@ function sectionsixthAnimation() {
 sectionsixthAnimation()
 
 function sectionseventhAnimation() {
-    var t6 = gsap.timeline({
-        scrollTrigger: {
-            trigger: ".section7",
-            scroller: ".container",
-            start: "top 50%",
-            end: "top 0",
-            // scrub: 2,
-            invalidateOnRefresh: true
-        }
-    })
-
     var swiper = new Swiper('.mySwiper', {
         effect: 'cards',
         grabCursor: true,
@@ -357,7 +318,6 @@ function sectionseventhAnimation() {
             disableOnInteraction: false,
         }
     });
-
 }
 sectionseventhAnimation();
 
@@ -367,4 +327,4 @@ function reachAtSections() {
         locoScroll.scrollTo("#gallery");
     });
 }
-reachAtSections()
+reachAtSections();
