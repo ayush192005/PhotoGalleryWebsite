@@ -10,7 +10,7 @@ body {
     height: 100%;
     color: white;
     background-color: var(--black-color);
-    overflow-x: hidden;
+    /* overflow-x: hidden; */
 }
 
 :root {
@@ -45,6 +45,8 @@ body {
     --max-page-width: 1800px;
 }
 
+
+
 /*=======================
       Website Loader
 ========================= */
@@ -76,7 +78,6 @@ body {
     width: 100%;
     min-height: 100vh;
 }
-
 
 img {
     display: block;
