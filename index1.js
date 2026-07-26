@@ -1,47 +1,62 @@
-let locoScroll;
+let locoScroll = null;
 
-// function locoScroller() {
+function locomotive() {
 
-//     gsap.registerPlugin(ScrollTrigger);
+    gsap.registerPlugin(ScrollTrigger);
 
-//     locoScroll = new LocomotiveScroll({
-//         el: document.querySelector(".container"),
-//         smooth: true,
-//         tablet: { smooth: true },
-//         smartphone: { smooth: true }
-//     });
+    // Remove old Locomotive instance if it exists
+    if (locoScroll) {
+        locoScroll.destroy();
+        locoScroll = null;
+    }
 
-//     locoScroll.on("scroll", ScrollTrigger.update);
+    // Remove old ScrollTrigger proxy
+    ScrollTrigger.clearScrollMemory();
 
-//     ScrollTrigger.scrollerProxy(".container", {
-//         scrollTop(value) {
-//             return arguments.length
-//                 ? locoScroll.scrollTo(value, 0, 0)
-//                 : locoScroll.scroll.instance.scroll.y;
-//         },
+    // Desktop only
+    if (window.innerWidth > 768) {
 
-//         getBoundingClientRect() {
-//             return {
-//                 top: 0,
-//                 left: 0,
-//                 width: window.innerWidth,
-//                 height: window.innerHeight
-//             };
-//         },
+        locoScroll = new LocomotiveScroll({
+            el: document.querySelector(".container"),
+            smooth: true
+        });
 
-//         pinType: "transform"
-//     });
+        locoScroll.on("scroll", ScrollTrigger.update);
 
-//     ScrollTrigger.addEventListener("refresh", () => locoScroll.update());
-//     ScrollTrigger.refresh();
+        ScrollTrigger.scrollerProxy(".container", {
+            scrollTop(value) {
+                return arguments.length
+                    ? locoScroll.scrollTo(value, 0, 0)
+                    : locoScroll.scroll.instance.scroll.y;
+            },
 
-//     window.addEventListener("resize", () => {
-//         locoScroll.update();
-//         ScrollTrigger.refresh();
-//     });
+            getBoundingClientRect() {
+                return {
+                    top: 0,
+                    left: 0,
+                    width: window.innerWidth,
+                    height: window.innerHeight
+                };
+            },
 
-// }
-// locoScroller();
+            pinType: "transform"
+        });
+
+        ScrollTrigger.addEventListener("refresh", () => locoScroll.update());
+    }
+
+    ScrollTrigger.refresh();
+}
+
+locomotive();
+
+window.addEventListener("resize", () => {
+    clearTimeout(window.resizeTimer);
+
+    window.resizeTimer = setTimeout(() => {
+        locomotive();
+    }, 300);
+});
 
 function loader() {
     var tone = gsap.timeline();
@@ -175,7 +190,7 @@ function sectionTwoAnimations() {
         x: -50,
         opacity: 0,
         duration: 1.4,
-    },"sam");
+    }, "sam");
 
     t2.from(".paragraphArea span", {
         y: 80,
@@ -188,7 +203,7 @@ function sectionTwoAnimations() {
         x: -30,
         opacity: 0,
         duration: 0.5,
-    },"sam")
+    }, "sam")
 }
 sectionTwoAnimations();
 
@@ -231,25 +246,25 @@ function setionfourAnimations() {
     })
 
     t4.from(".passage1 p", {
-        x: -200,
+   x: () => window.innerWidth < 768 ? -100 : -600,
         opacity: 0,
         duration: 0.8,
     }, "para1")
 
     t4.from(".upperDeckImage img", {
-        x: 200,
+        x: 60,
         opacity: 0,
         duration: 0.8,
     }, "img1")
 
     t4.from(".passage2 p", {
-        x: 200,
+        x: () => window.innerWidth < 768 ? 100 : 600,
         opacity: 0,
         duration: 0.8,
     }, "para1")
 
     t4.from(".lowerDeckImage img", {
-        x: -200,
+        x: -60,
         opacity: 0,
         duration: 0.8,
     }, "img1")
