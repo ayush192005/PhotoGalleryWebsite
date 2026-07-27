@@ -246,24 +246,24 @@ function setionfourAnimations() {
     })
 
     t4.from(".passage1 p", {
-   x: () => window.innerWidth < 768 ? -100 : -600,
+        x:-50,
         opacity: 0,
         duration: 0.8,
     }, "para1")
 
-    t4.from(".upperDeckImage img", {
+    t4.from(".upperDeckImage", {
         x: 60,
         opacity: 0,
         duration: 0.8,
     }, "img1")
 
     t4.from(".passage2 p", {
-        x: () => window.innerWidth < 768 ? 100 : 600,
+        x: 50,
         opacity: 0,
         duration: 0.8,
     }, "para1")
 
-    t4.from(".lowerDeckImage img", {
+    t4.from(".lowerDeckImage", {
         x: -60,
         opacity: 0,
         duration: 0.8,
@@ -321,9 +321,8 @@ function sectionsixthAnimation() {
             invalidateOnRefresh: true,
         }
     })
-
     t5.from(".passage3", {
-        y: 300,
+        y: 50,
         opacity: 0,
         duration: 1.5,
     })
