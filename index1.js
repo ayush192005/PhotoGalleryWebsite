@@ -1,53 +1,22 @@
-let locoScroll = null;
-
 function locomotive() {
-
     gsap.registerPlugin(ScrollTrigger);
-
-    // Remove old Locomotive instance if it exists
-    if (locoScroll) {
-        locoScroll.destroy();
-        locoScroll = null;
-    }
-
-    // Remove old ScrollTrigger proxy
-    ScrollTrigger.clearScrollMemory();
-
-    // Desktop only
-    if (window.innerWidth > 768) {
-
-        locoScroll = new LocomotiveScroll({
-            el: document.querySelector(".container"),
-            smooth: true
-        });
-
-        locoScroll.on("scroll", ScrollTrigger.update);
-
-        ScrollTrigger.scrollerProxy(".container", {
-            scrollTop(value) {
-                return arguments.length
-                    ? locoScroll.scrollTo(value, 0, 0)
-                    : locoScroll.scroll.instance.scroll.y;
-            },
-
-            getBoundingClientRect() {
-                return {
-                    top: 0,
-                    left: 0,
-                    width: window.innerWidth,
-                    height: window.innerHeight
-                };
-            },
-
-            pinType: "transform"
-        });
-
-        ScrollTrigger.addEventListener("refresh", () => locoScroll.update());
-    }
-
+    const locoScroll = new LocomotiveScroll({
+        el: document.querySelector(".container"),
+        smooth: true
+    });
+    locoScroll.on("scroll", ScrollTrigger.update);
+    ScrollTrigger.scrollerProxy(".container", {
+        scrollTop(value) {
+            return arguments.length ? locoScroll.scrollTo(value, 0, 0) : locoScroll.scroll.instance.scroll.y;
+        },
+        getBoundingClientRect() {
+            return { top: 0, left: 0, width: window.innerWidth, height: window.innerHeight };
+        },
+        pinType: document.querySelector(".container").style.transform ? "transform" : "fixed"
+    });
+    ScrollTrigger.addEventListener("refresh", () => locoScroll.update());
     ScrollTrigger.refresh();
 }
-
 locomotive();
 
 window.addEventListener("resize", () => {
@@ -175,7 +144,6 @@ function homePageAnimation() {
 }
 homePageAnimation()
 
-
 function sectionTwoAnimations() {
     const t2 = gsap.timeline({
         scrollTrigger: {
@@ -189,7 +157,6 @@ function sectionTwoAnimations() {
     t2.from(".titleArea h1", {
         x: -50,
         opacity: 0,
-        duration: 1.4,
     }, "sam");
 
     t2.from(".paragraphArea span", {
@@ -221,7 +188,7 @@ function sectionthreeAnimations() {
     t3.from(".page3Heading h1", {
         y: 50,
         opacity: 0,
-        duration: 2.5,
+        // duration: 2.5,
     })
 
     t3.from(".card1, .card2", {
@@ -240,30 +207,29 @@ function setionfourAnimations() {
             scroller: ".container",
             start: "top 50%",
             end: "top 0",
-            scrub: 2,
             invalidateOnRefresh: true,
         }
     })
 
     t4.from(".passage1 p", {
-        x:-50,
+        x: () => window.innerWidth < 768 ? -100 : -600,
         opacity: 0,
         duration: 0.8,
     }, "para1")
 
-    t4.from(".upperDeckImage", {
+    t4.from(".upperDeckImage img", {
         x: 60,
         opacity: 0,
         duration: 0.8,
     }, "img1")
 
     t4.from(".passage2 p", {
-        x: 50,
+        x: () => window.innerWidth < 768 ? 100 : 600,
         opacity: 0,
         duration: 0.8,
     }, "para1")
 
-    t4.from(".lowerDeckImage", {
+    t4.from(".lowerDeckImage img", {
         x: -60,
         opacity: 0,
         duration: 0.8,
@@ -321,8 +287,9 @@ function sectionsixthAnimation() {
             invalidateOnRefresh: true,
         }
     })
+
     t5.from(".passage3", {
-        y: 50,
+        y: 300,
         opacity: 0,
         duration: 1.5,
     })
