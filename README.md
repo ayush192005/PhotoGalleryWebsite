@@ -23,6 +23,19 @@ The project focuses on visual presentation, smooth scrolling, and scroll-based a
 - GSAP ScrollTrigger
 - Locomotive Scroll
 
+## 📁 Project Structure
+
+Photo-Gallery/
+├── index.html
+├── style.css
+├── main.js
+├── logo.png
+└── README.md
+
+**Important:** `photo-gallery-preview.png` is your project preview image, so keeping it in the structure is correct.
+
+If you want to add that preview image to the README itself, you can also use:
+
 ## 📱 Responsive Design
 
 The website is designed to adapt to different screen sizes, including desktop, tablet, and mobile devices.
@@ -39,25 +52,10 @@ Locomotive Scroll is used to create a smooth scrolling experience.
 
 [View Live Website](https://photo-gallery-xi-self.vercel.app/)
 
-## 📁 Project Structure
+## 📌 Project Status
 
-PhotoGalleryWebsite-main/
-├── index.html
-├── index.css
-├── index.js
-├── partypop.mp4
-├── photo-gallery-preview.png
-└── README.md
-
-**Important:** `photo-gallery-preview.png` is your project preview image, so keeping it in the structure is correct.
-
-If you want to add that preview image to the README itself, you can also use:
-
+Completed
 
 👤 Author
 
 Ayush Kumar Bansal
-
-## 📌 Project Status
-
-Completed
