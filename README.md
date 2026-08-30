@@ -25,13 +25,14 @@ The project focuses on visual presentation, smooth scrolling, and scroll-based a
 
 ## 📁 Project Structure
 
-Photo-Gallery/
+```text
+PhotoGalleryWebsite-main/
 ├── index.html
-├── style.css
-├── main.js
-├── logo.png
+├── index.css
+├── index.js
+├── partypop.mp4
+├── photo-gallery-preview.png
 └── README.md
-
 **Important:** `photo-gallery-preview.png` is your project preview image, so keeping it in the structure is correct.
 
 If you want to add that preview image to the README itself, you can also use:
