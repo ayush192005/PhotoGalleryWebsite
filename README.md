@@ -33,6 +33,9 @@ PhotoGalleryWebsite-main/
 ├── partypop.mp4
 ├── photo-gallery-preview.png
 └── README.md
+
+```
+
 **Important:** `photo-gallery-preview.png` is your project preview image, so keeping it in the structure is correct.
 
 If you want to add that preview image to the README itself, you can also use:
